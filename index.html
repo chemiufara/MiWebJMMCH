@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bleach — Web básica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#d97706; --muted:#94a3b8; --glass: rgba(255,255,255,0.04);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans",sans-serif;margin:0;background:linear-gradient(180deg,#071022 0%, #0b1623 100%);color:#e6eef8;line-height:1.5}
+    header{padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;background:linear-gradient(135deg,#f59e0b,#e11d48);display:grid;place-items:center;font-weight:700;border-radius:8px}
+    nav a{color:var(--muted);text-decoration:none;margin-left:14px;font-weight:600}
+    nav a:hover{color:#fff}
+    .container{max-width:1100px;margin:24px auto;padding:0 18px}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:14px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    h1{font-size:28px;margin:0 0 8px}
+    p.lead{color:var(--muted);margin:0 0 18px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:#071022;font-weight:700;text-decoration:none}
+
+    /* Characters */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:18px}
+    .card{background:var(--card);padding:12px;border-radius:12px;min-height:120px}
+    .card h3{margin:8px 0 4px;font-size:16px}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* Episodes list */
+    .episodes{margin-top:18px;background:var(--glass);padding:14px;border-radius:10px}
+    .ep{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.02)}
+    .ep:last-child{border-bottom:0}
+
+    footer{margin-top:32px;padding:18px;text-align:center;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:880px){.hero{grid-template-columns:1fr;}.hero-card{order:2}.hero-visual{order:1}}
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div class="brand">
+      <div class="logo">B</div>
+      <div>
+        <div style="font-weight:700">Bleach — Web básica</div>
+        <div style="font-size:12px;color:var(--muted)">Fic: resumen | personajes | episodios</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#about">Sobre</a>
+      <a href="#personajes">Personajes</a>
+      <a href="#episodios">Episodios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Bleach</h1>
+        <p class="lead">Bleach es una serie de manga y anime creada por Tite Kubo. Sigue las aventuras de Ichigo Kurosaki, un joven capaz de ver espíritus que obtiene poderes de shinigami y debe proteger ambos mundos de amenazas sobrenaturales.</p>
+        <p><strong>Géneros:</strong> Acción, Aventura, Sobrenatural, Shounen</p>
+        <div style="margin-top:16px">
+          <a class="btn" href="#personajes">Ver personajes</a>
+        </div>
+
+        <div style="margin-top:20px">
+          <h4>Resumen rápido</h4>
+          <ul style="color:var(--muted)">
+            <li>Protagonista: Ichigo Kurosaki</li>
+            <li>Shinigami (Dios de la muerte): Rukia Kuchiki</li>
+            <li>Acción centrada en batallas y poderes espirituales</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hero-card hero-visual" style="display:flex;flex-direction:column;align-items:center;gap:12px">
+        <div style="width:100%;height:220px;border-radius:10px;background:linear-gradient(135deg,#07122b,#1b2330);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:18px">
+          <div style="font-size:13px;color:var(--muted);">Imagen de portada (placeholder)</div>
+          <div style="margin-top:8px;font-weight:700;font-size:16px">BLEACH</div>
+        </div>
+
+        <div style="width:100%;display:flex;gap:8px">
+          <div style="flex:1;background:var(--card);padding:10px;border-radius:8px;text-align:center">
+            <div style="font-weight:700">Mangas</div>
+            <div class="muted">2004 — 2016 (publicación)</div>
+          </div>
+          <div style="flex:1;background:var(--card);padding:10px;border-radius:8px;text-align:center">
+            <div style="font-weight:700">Anime</div>
+            <div class="muted">Completo en varias temporadas</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="personajes" style="margin-top:26px">
+      <h2>Personajes principales</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Ichigo Kurosaki</h3>
+          <div class="muted">Protagonista — Shinigami sustituto</div>
+          <p style="margin-top:8px;color:var(--muted)">Valiente y protector, Ichigo lucha para proteger a sus amigos y a la sociedad humana de los Hollows y otras amenazas.</p>
+        </article>
+
+        <article class="card">
+          <h3>Rukia Kuchiki</h3>
+          <div class="muted">Shinigami — Amiga de Ichigo</div>
+          <p style="margin-top:8px;color:var(--muted)">Rukia transfiere sus poderes a Ichigo al inicio de la historia y se convierte en una figura clave en su vida.</p>
+        </article>
+
+        <article class="card">
+          <h3>Orihime Inoue</h3>
+          <div class="muted">Compañera — Habilidades curativas</div>
+          <p style="margin-top:8px;color:var(--muted)">Amable y empática, Orihime aporta apoyo emocional y habilidades de curación únicas.</p>
+        </article>
+
+        <article class="card">
+          <h3>Uryu Ishida</h3>
+          <div class="muted">Quincy — Arco espiritual</div>
+          <p style="margin-top:8px;color:var(--muted)">Un arquero Quincy que complica y enriquece las dinámicas del grupo.</p>
+        </article>
+
+        <article class="card">
+          <h3>Yasutora "Chad" Sado</h3>
+          <div class="muted">Aliado — Fuerza física</div>
+          <p style="margin-top:8px;color:var(--muted)">Fuerte y leal, Chad lucha al lado de Ichigo con poderes defensivos y ofensivos.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="episodios" style="margin-top:26px">
+      <h2>Episodios y arcos recomendados</h2>
+      <div class="episodes">
+        <div class="ep"><div><strong>Arco de Rukia</strong><div class="muted">Episodios iniciales — Introducción</div></div><div class="muted">Recomendado</div></div>
+        <div class="ep"><div><strong>Arco de Soul Society</strong><div class="muted">Rescate y batallas importantes</div></div><div class="muted">Clave</div></div>
+        <div class="ep"><div><strong>Arco de Arrancar</strong><div class="muted">Conflictos con los Hollows evolucionados</div></div><div class="muted">Extenso</div></div>
+        <div class="ep"><div><strong>Arco de Thousand-Year Blood War</strong><div class="muted">Último gran arco del manga</div></div><div class="muted">Imperdible</div></div>
+      </div>
+    </section>
+
+    <section id="contacto" style="margin-top:26px">
+      <h2>Contacto / Créditos</h2>
+      <p class="muted">Contenido creado como página de muestra. Bleach es propiedad intelectual de Tite Kubo y los editores correspondientes.</p>
+      <form style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+        <input placeholder="Tu nombre" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+        <input placeholder="Tu email" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+        <textarea placeholder="Mensaje" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></textarea>
+        <button type="button" class="btn">Enviar (demo)</button>
+      </form>
+    </section>
+
+    <footer>
+      Página de ejemplo — información resumida. Diseño responsive y fácil de editar.
+    </footer>
+  </main>
+
+  <script>
+    // Pequeñas mejoras: navegación suave
+    document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click', e=>{
+      e.preventDefault();const id=a.getAttribute('href').slice(1);const el=document.getElementById(id);if(el) el.scrollIntoView({behavior:'smooth'});
+    }));
+  </script>
+</body>
+</html>
+
